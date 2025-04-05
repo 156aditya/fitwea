@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ff9966, #ff5e62);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.stats, .tasks, .progress, .tips {
+    margin: 20px 0;
+}
+
+.btn {
+    background: #ff5e62;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background: #ff9966;
+}
+
+.logout {
+    background: #ff0000;
+}
+
+input {
+    padding: 8px;
+    margin: 10px 0;
+    width: 80%;
+    border: none;
+    border-radius: 5px;
+}
+
+.add-btn {
+    background: #4CAF50;
+}
+
+.delete-btn {
+    background: #ff0000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 10px;
+    border-radius: 5px;
+}

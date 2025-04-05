@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="FitnessApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="firebase-config.js" defer></script>
+    <script src="js/app.js" defer></script>
+</head>
+<body ng-controller="FitnessController">
+
+    <div class="container">
+        <header>
+            <h1>🏋️‍♂️ Fitness Tracker</h1>
+            <button class="btn" ng-click="googleSignIn()">Sign in with Google</button>
+            <p ng-if="user">{{ user.displayName }} <button class="btn logout" ng-click="logout()">Logout</button></p>
+        </header>
+
+        <section class="stats">
+            <h2>Today's Stats</h2>
+            <p>🏃 Steps: <span>{{ steps }}</span></p>
+            <p>🔥 Calories Burned: <span>{{ calories }}</span></p>
+            <p>🌡️ Weather: <span>{{ weather }}</span></p>
+            <p>💨 Air Quality: <span>{{ airQuality }}</span></p>
+        </section>
+
+        <button class="btn" ng-click="fetchWeather()">Update Weather</button>
+
+        <section class="tasks">
+            <h2>📋 Today's Tasks</h2>
+            <input type="text" ng-model="newTask" placeholder="Add a new task..." />
+            <button class="btn add-btn" ng-click="addTask()">Add Task</button>
+            <ul>
+                <li ng-repeat="task in tasks">
+                    {{ task }} <button class="delete-btn" ng-click="removeTask($index)">❌</button>
+                </li>
+            </ul>
+        </section>
+
+        <section class="progress">
+            <h2>📊 Progress Chart</h2>
+            <canvas id="progressChart"></canvas>
+        </section>
+
+        <section class="tips">
+            <h2>🏆 Fitness Tip</h2>
+            <p>{{ fitnessTip }}</p>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Fitness Tracker</p>
+        </footer>
+    </div>
+
+</body>
+</html>
